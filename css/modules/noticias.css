@@ -1,0 +1,113 @@
+/* css/modules/noticias.css */
+
+.noticias-container {
+    padding: 4rem 1rem;
+    max-width: 900px; /* Para que quede centrado como en el original */
+    margin: 0 auto;
+}
+
+/* --- CARRUSEL DE NOTICIAS --- */
+.carrusel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.carrusel-btn {
+    background: none;
+    border: none;
+    color: var(--brand-orange);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    padding: 10px;
+}
+
+.carrusel-btn:hover {
+    transform: scale(1.2);
+    color: #e08e09; /* Naranja más oscuro al pasar el mouse */
+}
+
+/* El bloque interno de la noticia */
+.noticia-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #fff;
+    flex: 1; /* Para que ocupe todo el espacio entre las flechas */
+}
+
+.noticia-texto {
+    flex: 1.2; /* El texto ocupa un poco más de espacio que la imagen */
+}
+
+.noticia-texto p {
+    font-size: 0.8rem;
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.noticia-imagen {
+    flex: 1;
+}
+
+.noticia-imagen img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- MOSAICO DE GALERÍA --- */
+.galeria-section {
+    padding-bottom: 5rem;
+}
+
+.mosaico-galeria {
+    display: grid;
+    /* Grid de 4 columnas. Ajusta minmax si quieres que las fotos sean más grandes/pequeñas */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px; /* Espacio mínimo entre las fotos, como en la captura */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.foto-galeria {
+    aspect-ratio: 4/3; /* Mantiene una proporción casi cuadrada para todas las fotos */
+    overflow: hidden;
+    background-color: #e2e8f0;
+}
+
+.foto-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Indica que se pueden ver en grande (si luego le añades funcionalidad) */
+}
+
+.foto-galeria img:hover {
+    transform: scale(1.05); /* Efecto de acercamiento al pasar el ratón */
+    filter: brightness(0.9); /* Oscurece ligeramente la foto */
+}
+
+/* --- RESPONSIVIDAD --- */
+@media screen and (max-width: 768px) {
+    .noticia-content {
+        flex-direction: column-reverse; /* Pone la imagen arriba y texto abajo en celulares */
+        text-align: center;
+    }
+    
+    .noticia-texto p {
+        text-align: center;
+    }
+    
+    .mosaico-galeria {
+        grid-template-columns: repeat(2, 1fr); /* 2 fotos por fila en celulares */
+        gap: 2px;
+    }
+}

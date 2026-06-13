@@ -1,0 +1,235 @@
+/* css/modules/proyectos.css */
+
+.seccion-proyectos {
+    padding: 4rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- PILARES COMPACTOS (Zig-Zag para proyectos) --- */
+.pilar-compacto {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    scroll-margin-top: 6rem; /* Margen superior para el ID al hacer scroll */
+}
+
+.pilar-compacto.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.pilar-img-compacta {
+    flex: 0.8;
+}
+
+.pilar-img-compacta img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pilar-text-compacto {
+    flex: 1.2;
+}
+
+.pilar-text-compacto p {
+    font-size: 0.8rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* --- TÍTULOS CENTRALES --- */
+.seccion-centrada {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    scroll-margin-top: 6rem;
+}
+
+.titulo-centro {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.texto-centro {
+    text-align: justify;
+    font-size: 0.8rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* --- TARJETAS VERDES --- */
+.grid-tarjetas-verdes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.tarjeta-verde {
+    background-color: var(--brand-green);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-verde:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta-verde img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.tarjeta-verde h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-verde p {
+    font-size: 0.7rem;
+    line-height: 1.4;
+}
+
+.icono-convenio {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- TARJETAS HORIZONTALES (Revistas, Brochures) --- */
+.tarjeta-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    scroll-margin-top: 6rem;
+}
+
+.tarjeta-horizontal.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.th-img {
+    flex: 1;
+}
+
+.th-img img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.th-texto {
+    flex: 1;
+}
+
+.th-texto h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.th-texto p {
+    font-size: 0.8rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.btn-pequeno {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+}
+
+/* --- LÍDERES COMUNITARIOS (Imagen Grande Arriba) --- */
+.item-formacion-vertical {
+    text-align: center;
+    margin-bottom: 4rem;
+    scroll-margin-top: 6rem;
+}
+
+.item-formacion-vertical img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.item-formacion-vertical p {
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- ALIADOS (Lista Horizontal) --- */
+.lista-aliados {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.aliado-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    scroll-margin-top: 6rem;
+}
+
+.aliado-item img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.aliado-info {
+    flex: 1;
+}
+
+.aliado-info p {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media screen and (max-width: 768px) {
+    .grid-tarjetas-verdes {
+        grid-template-columns: 1fr;
+    }
+    
+    .pilar-compacto, .pilar-compacto.row-reverse,
+    .tarjeta-horizontal, .tarjeta-horizontal.row-reverse,
+    .aliado-item {
+        flex-direction: column;
+        text-align: center !important;
+    }
+    
+    .text-right {
+        text-align: center;
+    }
+    
+    .aliado-item img {
+        width: 100%;
+        height: auto;
+    }
+}

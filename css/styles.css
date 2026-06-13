@@ -1,0 +1,60 @@
+/* css/styles.css */
+
+/* --- 1. BASE --- */
+@import url('base/variables.css');
+
+/* --- 2. LAYOUT --- */
+@import url('layout/header.css');
+@import url('layout/footer.css');
+
+/* --- 3. MÓDULOS --- */
+@import url('modules/nosotros.css');
+@import url('modules/gpaviajero.css');
+@import url('modules/proyectos.css');
+@import url('modules/incidencias.css');
+@import url('modules/noticias.css');
+@import url('modules/contacto.css');
+
+
+
+/* --- 4. RESPONSIVE (MEDIA QUERIES GLOBALES) --- */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle .bar { width: 25px; height: 3px; background-color: var(--text-light); }
+    .nav-menu { position: absolute; top: var(--header-height); left: -100%; width: 100%; background-color: var(--header-bg); padding: 2rem 0; transition: 0.4s; }
+    .nav-list { flex-direction: column; align-items: center; gap: 1.5rem; }
+    .dropdown-menu { position: static; box-shadow: none; display: none; }
+    .dropdown:hover .dropdown-menu { display: block; }
+    
+    /* Pilares y Layouts */
+    .pilar-row, .pilar-row.row-reverse { flex-direction: column; gap: 1.5rem; }
+    .gpalito-layout { flex-direction: column; text-align: center; }
+    .gpalito-text { text-align: center; margin-bottom: 2rem; }
+    .atributos-container { grid-template-columns: 1fr 1fr; }
+    
+    /* Widgets Flotantes */
+    .podcast-widget { width: 280px; right: 10px; bottom: 10px; }
+    .social-sidebar { left: 5px; }
+}
+
+/* Ajuste para que la barra de navegación fija no cubra el contenido al hacer clic en un enlace */
+section[id] {
+    /* El valor debe ser igual o ligeramente mayor a la altura de tu barra de navegación (--header-height) */
+    scroll-margin-top: 5rem; 
+}
+
+.caja-creditos-oculta {
+    display: none; /* ¡Esto es lo que mantiene el texto oculto al inicio! */
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 2rem;
+    text-align: left;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+

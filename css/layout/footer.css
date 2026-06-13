@@ -1,0 +1,118 @@
+/* css/layout/footer.css */
+.footer-gris {
+    background-color: var(--brand-grey);
+    padding: 3rem 1rem;
+    width: 100%;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.footer-logo img:hover {
+    opacity: 1;
+}
+
+/* Redes Sociales Flotantes */
+.social-sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.social-btn {
+    width: 35px;
+    height: 35px;
+    background-color: var(--brand-orange);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    background-color: #e08e09;
+}
+
+/* Widget Podcast Flotante */
+.podcast-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #ffffff;
+    width: 320px;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.podcast-label {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    color: var(--brand-green);
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.podcast-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.play-btn {
+    background: #ff5500;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.podcast-title {
+    font-size: 0.8rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.podcast-wave {
+    color: #ccc;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+}
+
+.podcast-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #999;
+}

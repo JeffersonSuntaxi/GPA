@@ -1,0 +1,77 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* css/base/variables.css */
+:root {
+    --brand-orange: #f59e0b;
+    --brand-green: #2e7d32;
+    --brand-grey: #4b4d52;
+    --header-bg: #4b4d52;
+    --text-light: #ffffff;
+    --text-hover: #fbb117;
+    
+    --font-main: 'Open Sans', sans-serif;
+    --header-height: 4.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.titulo-verde {
+    color: var(--brand-green);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.banner-naranja {
+    background-color: var(--brand-orange);
+    color: white;
+    padding: 3rem 1rem;
+    width: 100%;
+}
+
+.banner-naranja h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.banner-naranja p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}

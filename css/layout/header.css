@@ -1,0 +1,90 @@
+/* css/layout/header.css */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--header-bg);
+}
+
+.navbar {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    background-color: #ccc; /* Espacio temporal para el logo */
+    width: 100px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-hover);
+}
+
+/* =========================================
+   SUBMENÚS (DROPDOWNS) CORREGIDOS
+   ========================================= */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff; /* Fondo blanco */
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-radius: 0 0 4px 4px;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 20px;
+    color: var(--brand-orange) !important; /* Fuerza el color naranja */
+    font-size: 0.85rem;
+    text-align: left; /* Alinea el texto a la izquierda */
+    font-weight: 600;
+    text-decoration: none !important; /* Quita el subrayado y el morado por defecto */
+    transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-link:hover {
+    background-color: #fff3e0; /* Fondo naranja muy clarito al pasar el mouse */
+    color: var(--brand-orange) !important;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos | GPA Ecuador</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="social-sidebar">
+        <a href="https://api.whatsapp.com/send?phone=593963593763" target="_blank" class="social-btn"><i
+                class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/gpafroficial" target="_blank" class="social-btn"><i
+                class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gpafroficial/" target="_blank" class="social-btn"><i
+                class="fab fa-instagram"></i></a>
+        <a href="https://x.com/gpafroficial" target="_blank" class="social-btn"><i
+                class="fa-brands fa-x-twitter"></i></a>
+    </div>
+
+    <header class="header">
+        <nav class="navbar container-fluid">
+            <a href="../index.html" class="logo">
+                <img src="../assets/ruta-a-tu-logo.png" alt="GPA" class="logo-img">
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown">
+                        <a href="../index.html" class="nav-link">Nosotros ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html#historia" class="dropdown-link">Historia</a></li>
+                            <li><a href="../index.html#gpalito" class="dropdown-link">GPAlito</a></li>
+                            <li><a href="../index.html#autoridades" class="dropdown-link">Autoridades</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="gpaviajero.html" class="nav-link">GPA Viajero ▾</a></li>
+                    <li class="nav-item"><a href="proyectos.html" class="nav-link">Proyectos y Alianzas ▾</a></li>
+                    <li class="nav-item"><a href="incidencia.html" class="nav-link">Incidencia Política y Social ▾</a>
+                    </li>
+                    <li class="nav-item"><a href="noticias.html" class="nav-link">Noticias y Galería ▾</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-link active">Contáctanos</a></li>
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle"><span class="bar"></span><span class="bar"></span><span
+                    class="bar"></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-viajero" style="background-image: url('../assets/hero-contacto.jpg');"></section>
+
+        <section class="banner-naranja">
+            <div class="container text-center">
+                <h2>Contáctanos</h2>
+                <p>¡Escríbenos, llámanos o visítanos! Estamos a tu disposición para conectar contigo y seguir
+                    construyendo juntos una sociedad más equitativa e inclusiva.</p>
+            </div>
+        </section>
+
+        <section class="contacto-wrapper container">
+            <div class="contacto-grid">
+                <div class="contacto-form-col">
+                    <h3 class="titulo-verde">Formulario</h3>
+                    <form id="form-gpa" class="formulario-limpio">
+                        <input type="text" placeholder="Nombre" required class="input-linea">
+                        <input type="email" placeholder="Email" required class="input-linea">
+                        <textarea placeholder="Mensaje" rows="5" required class="input-linea textarea-linea"></textarea>
+                        <button type="submit" class="btn-naranja-redondo">ENVIAR</button>
+                    </form>
+                </div>
+
+                <div class="contacto-info-col">
+                    <h3 class="titulo-verde">Información de contacto</h3>
+                    <div class="info-bloque">
+                        <h4 class="titulo-verde-pequeno">Correo</h4>
+                        <p>gpafrodescendiente@gmail.com</p>
+                    </div>
+                    <div class="info-bloque">
+                        <h4 class="titulo-verde-pequeno">Número</h4>
+                        <p>+593 96 359 3760</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="creditos-container text-center">
+                <button id="btn-creditos" class="btn-naranja-redondo btn-creditos">Créditos</button>
+            </div>
+
+            <div id="caja-creditos" class="caja-creditos-oculta" style="display: none;">
+                <div class="creditos-contenido">
+
+                    <p><strong>UNIVERSIDAD TECNOLÓGICA ISRAEL</strong></p><br>
+                    <p><strong>Desarrollo y Diseño Web</strong></p>
+                    <p>David Sebastián Mera Rosero | Lesly Raquel Guamán Jiménez | Michael Cardenas | Jefferson Patricio
+                        Suntaxi Pachacama</p><br>
+                    <p><strong>Perfil Académico:</strong> Estudiante de octavo semestre de Ingeniería De Sistemas de
+                        Información</p>
+                    <p><strong>Especialidad Técnica:</strong> Desarrollo Full-Stack</p>
+                    <p><strong>Año:</strong> 2026</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-gris">
+        <div class="container text-center">
+            <div class="footer-logo"><img src="../assets/ruta-a-tu-logo-footer.png" alt="Logo GPA Ecuador"></div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+/* css/modules/contacto.css */
+
+.contacto-wrapper {
+    padding: 5rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* --- ESTILOS DEL FORMULARIO (Columna Izquierda) --- */
+.contacto-form-col h3,
+.contacto-info-col h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.formulario-limpio {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-linea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333; /* Borde oscuro fino como en la imagen */
+    border-radius: 0; /* Sin bordes redondeados en los inputs */
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+}
+
+.input-linea::placeholder {
+    color: #999;
+}
+
+.input-linea:focus {
+    outline: none;
+    border-color: var(--brand-green);
+}
+
+.textarea-linea {
+    resize: vertical;
+}
+
+/* --- BOTÓN NARANJA REDONDEADO --- */
+.btn-naranja-redondo {
+    background-color: var(--brand-orange);
+    color: #ffffff;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 20px; /* Bordes muy redondeados (estilo píldora) */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-naranja-redondo:hover {
+    background-color: #e08e09;
+}
+
+/* --- INFORMACIÓN DE CONTACTO (Columna Derecha) --- */
+.info-bloque {
+    margin-bottom: 1.5rem;
+}
+
+.titulo-verde-pequeno {
+    color: var(--brand-green);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.info-bloque p {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* Redes Sociales en Contacto */
+.redes-horizontales {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.5rem;
+}
+
+.icono-red-naranja {
+    width: 30px;
+    height: 30px;
+    background-color: var(--brand-orange);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.icono-red-naranja:hover {
+    transform: scale(1.1);
+}
+
+/* --- BOTÓN DE CRÉDITOS --- */
+.btn-creditos {
+    display: inline-block;
+    max-width: 500px;
+}
+
+/* Responsividad para móviles */
+@media screen and (max-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr; /* Una columna en celulares */
+        gap: 3rem;
+    }
+}
+
+/* Esta clase se activa con JavaScript al hacer clic */
+.caja-creditos-oculta {
+    display: none; /* <--- ESTO ES LO QUE ESTABA FALTANDO */
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.caja-creditos-oculta.mostrar {
+    display: block; 
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.caja-creditos-oculta strong {
+    color: #000;
+    font-weight: 700;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
