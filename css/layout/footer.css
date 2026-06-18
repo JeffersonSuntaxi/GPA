@@ -22,6 +22,13 @@
     opacity: 1;
 }
 
+.footer-copyright {
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin-top: 10px;       /* Separación extra sobre el año */
+    opacity: 0.8;           
+}
+
 /* Redes Sociales Flotantes */
 .social-sidebar {
     position: fixed;

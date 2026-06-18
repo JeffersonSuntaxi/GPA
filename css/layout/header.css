@@ -17,7 +17,7 @@
 
 .logo-img {
     height: 40px;
-    background-color: #ccc; /* Espacio temporal para el logo */
+    background-color:var(--header-bg); /* Espacio temporal para el logo */
     width: 100px;
 }
 
@@ -76,7 +76,7 @@
 .dropdown-link {
     display: block;
     padding: 10px 20px;
-    color: var(--brand-orange) !important; /* Fuerza el color naranja */
+    color: var(--brand-orange) !important; 
     font-size: 0.85rem;
     text-align: left; /* Alinea el texto a la izquierda */
     font-weight: 600;

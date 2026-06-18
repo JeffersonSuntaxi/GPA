@@ -6,6 +6,14 @@
     margin: 0 auto;
 }
 
+.hero-contacto {
+    background-image: url('../assets/hero-contacto.jpg');
+    /* Asegúrate de añadir estas propiedades para que la imagen se vea bien */
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Ajusta la altura a lo que necesites */
+}
+
 .contacto-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -151,3 +159,4 @@
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+

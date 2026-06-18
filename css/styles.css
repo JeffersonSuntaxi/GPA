@@ -58,3 +58,79 @@ section[id] {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
+/* Menú móvil oculto por defecto */
+@media screen and (max-width: 992px) {
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Oculto fuera de la pantalla */
+        width: 100%;
+        background-color: #333;
+        transition: 0.3s;
+    }
+    .nav-menu.show {
+        left: 0; /* Desliza hacia adentro */
+    }
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    .nav-toggle {
+        display: block; /* Asegúrate de que el icono sea visible */
+        cursor: pointer;
+    }
+}
+
+ .slider-container {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    line-height: 0;
+    background: red; 
+}
+
+
+.slider {
+    display: flex;
+    width: 300%; /* 100% por cada imagen */
+    animation: slide 15s infinite; /* El efecto de movimiento */
+}
+
+/* Imagenes principales*/
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Tiempo de la transición */
+}
+.slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animación de desvanecimiento */
+.slider-container .slide:nth-child(1) { animation: fade 12s infinite; }
+.slider-container .slide:nth-child(2) { animation: fade 12s infinite 4s; }
+.slider-container .slide:nth-child(3) { animation: fade 12s infinite 8s; }
+
+@keyframes fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Reseteo general para eliminar espacios por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

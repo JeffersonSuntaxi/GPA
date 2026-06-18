@@ -1,12 +1,15 @@
 /* css/modules/gpaviajero.css */
-
+:root {
+    --brand-orange: #ff9900; /* Define tu color naranja aquí */
+}
 /* Hero superior más corto (solo imagen plana) */
 .hero-viajero {
     width: 100%;
-    height: 350px; /* Es un banner más angosto que el de inicio */
-    margin-top: var(--header-height);
+    height: 350px;
     background: url('../../assets/foto-hero-viajero.jpg') center/cover no-repeat;
     background-color: #d1d5db;
+    position: relative;
+    z-index: 1;
 }
 
 /* Espaciado general de las secciones */

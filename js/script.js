@@ -1,5 +1,11 @@
 // Cambiar el estilo del navbar al hacer scroll
 const navbar = document.getElementById('navbar');
+const toggle = document.getElementById('nav-toggle');
+const menu = document.getElementById('nav-menu');
+
+toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+});
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -38,3 +44,4 @@ document.addEventListener("DOMContentLoaded", function() {
         console.warn("No se encontraron los elementos necesarios (btn-creditos o caja-creditos).");
     }
 });
+

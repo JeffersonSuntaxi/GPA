@@ -60,8 +60,10 @@ ul {
 .banner-naranja {
     background-color: var(--brand-orange);
     color: white;
-    padding: 3rem 1rem;
+    padding-top: 0%; /* Esto "abre" la caja y evita que los márgenes de los hijos se escapen */
+    margin-top: 0;
     width: 100%;
+   display: block;
 }
 
 .banner-naranja h2 {
