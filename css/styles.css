@@ -58,8 +58,6 @@ section[id] {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-<<<<<<< Updated upstream
-=======
 /* Menú móvil oculto por defecto */
 @media screen and (max-width: 992px) {
     .nav-menu {
@@ -136,4 +134,3 @@ section[id] {
     padding: 0;
     box-sizing: border-box;
 }
->>>>>>> Stashed changes

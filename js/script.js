@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-// Cambiar el estilo del navbar al hacer scroll
-const navbar = document.getElementById('navbar');
-=======
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const header = document.querySelector('.header');
@@ -53,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             secondary: ['WhatsApp', 'https://api.whatsapp.com/send?phone=593963593763']
         }
     };
->>>>>>> Stashed changes
 
     const current = pageContent[pageKey] || pageContent['index.html'];
 
@@ -126,12 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMenu();
             }
         });
-<<<<<<< Updated upstream
-    } else {
-        console.warn("No se encontraron los elementos necesarios (btn-creditos o caja-creditos).");
-    }
-});
-=======
 
         menu.querySelectorAll('a').forEach((link) => {
             link.addEventListener('click', (event) => {
@@ -275,4 +264,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
->>>>>>> Stashed changes
