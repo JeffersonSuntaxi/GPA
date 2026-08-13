@@ -22,7 +22,7 @@
     /* Header */
     .nav-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
     .nav-toggle .bar { width: 25px; height: 3px; background-color: var(--text-light); }
-    .nav-menu { position: absolute; top: var(--header-height); left: -100%; width: 100%; background-color: var(--header-bg); padding: 2rem 0; transition: 0.4s; }
+    .nav-menu { position: absolute; top: var(--header-height); left: -100%; width: 100%; background-color: rgba(7, 40, 32, 0.98); padding: 2rem 0; transition: 0.4s; }
     .nav-list { flex-direction: column; align-items: center; gap: 1.5rem; }
     .dropdown-menu { position: static; box-shadow: none; display: none; }
     .dropdown:hover .dropdown-menu { display: block; }
@@ -65,7 +65,7 @@ section[id] {
         top: 100%;
         left: -100%; /* Oculto fuera de la pantalla */
         width: 100%;
-        background-color: #333;
+        background-color: rgba(7, 40, 32, 0.98);
         transition: 0.3s;
     }
     .nav-menu.show {
