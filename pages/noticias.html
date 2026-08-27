@@ -1,45 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <meta name="description"
+        content="Grupo de Pensamiento Afrodescendiente (GPA) en Ecuador. Promovemos derechos, cultura, oratoria y formación de líderes comunitarios afroecuatorianos en Quito.">
+    <meta name="keywords"
+        content="GPA, Afrodescendiente, Ecuador, Quito, Derechos Humanos, Liderazgo, Cultura Afro, Vinculación">
+    <meta name="author" content="Equipo de Diseño Web - Universidad Tecnológica Israel">
+
+    <meta property="og:title" content="GPA Ecuador - Grupo de Pensamiento Afrodescendiente">
+    <meta property="og:description"
+        content="Conoce nuestros proyectos de incidencia política, oratoria y derechos sociales en Ecuador.">
+    <meta property="og:image" content="../assets/ruta-a-tu-logo.png">
+    <meta property="og:url" content="https://gpaecuador.org">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias y Galería | GPA Ecuador</title>
-    
+    <title>Noticias | GPA Ecuador</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/modern.css">
+    <style>
+        .noticias-carrusel {
+            padding: 3rem 0 !important;
+            overflow: hidden !important;
+        }
+
+        .noticias-carrusel .carrusel-track-container {
+            width: min(100%, 1294px) !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            overflow: hidden !important;
+        }
+
+        .noticias-carrusel .carrusel-track {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: stretch !important;
+            gap: 18px !important;
+            width: max-content !important;
+            animation: noticiasDerechaIzquierda 28s linear infinite !important;
+        }
+
+        .noticias-carrusel .carrusel-track-container:hover .carrusel-track {
+            animation-play-state: paused !important;
+        }
+
+        .noticias-carrusel .carrusel-card {
+            display: flex !important;
+            flex: 0 0 310px !important;
+            flex-direction: column !important;
+            width: 310px !important;
+            min-width: 310px !important;
+            max-width: 310px !important;
+            min-height: 390px !important;
+            overflow: hidden !important;
+            border: 1px solid rgba(16, 94, 69, 0.16) !important;
+            border-radius: 14px !important;
+            background: #ffffff !important;
+            box-shadow: 0 12px 28px rgba(7, 40, 32, 0.12) !important;
+        }
+
+        .noticias-carrusel .noticias-carrusel-marco {
+            display: block !important;
+            flex: 0 0 155px !important;
+            width: 100% !important;
+            height: 155px !important;
+            min-height: 155px !important;
+            max-height: 155px !important;
+            overflow: hidden !important;
+            border: 0 !important;
+            border-radius: 14px 14px 0 0 !important;
+        }
+
+        .noticias-carrusel .noticias-carrusel-img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: none !important;
+            object-fit: cover !important;
+            object-position: center !important;
+        }
+
+        .noticias-carrusel .tarjeta-lugar-bottom {
+            display: flex !important;
+            flex: 1 !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            width: 100% !important;
+            padding: 1rem 1.1rem 1.15rem !important;
+            color: #234037 !important;
+            text-align: left !important;
+            background: #ffffff !important;
+        }
+
+        .noticias-carrusel .tarjeta-lugar-bottom h4 {
+            margin: 0 0 0.7rem !important;
+            color: #0f5b46 !important;
+            font-size: 0.98rem !important;
+            line-height: 1.3 !important;
+        }
+
+        .noticias-carrusel .tarjeta-lugar-bottom p {
+            margin: 0 0 1rem !important;
+            color: #425b52 !important;
+            font-size: 0.76rem !important;
+            line-height: 1.45 !important;
+            text-align: left !important;
+        }
+
+        .noticias-carrusel .btn-enlace-tarjeta,
+        .noticias-carrusel .btn-enlace-tarjeta:visited {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.4rem !important;
+            margin-top: auto !important;
+            padding: 0.55rem 0.95rem !important;
+            border-radius: 999px !important;
+            color: #ffffff !important;
+            background: #198754 !important;
+            font-weight: 700 !important;
+            font-size: 0.82rem !important;
+            line-height: 1 !important;
+            text-decoration: none !important;
+            box-shadow: 0 8px 18px rgba(25, 135, 84, 0.22) !important;
+            transition: background 0.2s ease, transform 0.2s ease !important;
+        }
+
+        .noticias-carrusel .btn-enlace-tarjeta:hover {
+            color: #ffffff !important;
+            background: #0f6f43 !important;
+            text-decoration: none !important;
+            transform: translateY(-1px) !important;
+        }
+
+        .noticias-carrusel + .noticias-carrusel {
+            padding-top: 0 !important;
+        }
+
+        @keyframes noticiasDerechaIzquierda {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(calc(-50% - 9px));
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .noticias-carrusel .carrusel-card {
+                flex-basis: 245px !important;
+                width: 245px !important;
+                min-width: 245px !important;
+                max-width: 245px !important;
+                min-height: 375px !important;
+            }
+
+            .noticias-carrusel .noticias-carrusel-marco {
+                flex-basis: 130px !important;
+                height: 130px !important;
+                min-height: 130px !important;
+                max-height: 130px !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-      <div class="social-sidebar">
-        <a href="https://api.whatsapp.com/send?phone=593963593763&text&context=ARC0mKlRReVbteRDVoVHI3ZpB_s1VUtft6moxFhTXFk3QOKmRRpmw9lEQm4PkUYQwe5VTdAUgNfcZGFbI316Rn2r6z-CFw1SJImTO-wbsrVfuX4d-Qjkn3jvukXHPbR6F3FJP-Gywp6Gw6svN1Ks0zBRpQ&source&app=facebook" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/gpafroficial" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        
-        <a href="https://www.instagram.com/gpafroficial/" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <i class="fab fa-instagram"></i>
-        </a>
-        
-        <a href="https://x.com/gpafroficial?t=GtPYE1b2U4XXkGQpBoZMTg&s=09" target="_blank" rel="noopener noreferrer" class="social-btn">
-            <i class="fa-brands fa-x-twitter"></i>
+    <div class="social-sidebar">
+        <a href="https://api.whatsapp.com/send?phone=593963593763" target="_blank" rel="noopener noreferrer"
+            class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+        <a href="https://www.facebook.com/gpafroficial" target="_blank" rel="noopener noreferrer" class="social-btn"
+            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+        <a href="https://www.instagram.com/gpafroficial/" target="_blank" rel="noopener noreferrer" class="social-btn"
+            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+        <a href="https://x.com/gpafroficial" target="_blank" rel="noopener noreferrer" class="social-btn"
+            aria-label="Twitter">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
         </a>
     </div>
-
 
     <header class="header">
         <nav class="navbar container-fluid">
             <a href="../index.html" class="logo">
                 <img src="../assets/img/LogoMenuGPA.webp" alt="GPA" class="logo-img">
             </a>
-            
+
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item dropdown">
@@ -50,7 +212,7 @@
                             <li><a href="../index.html#autoridades" class="dropdown-link">Autoridades</a></li>
                         </ul>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a href="gpaviajero.html" class="nav-link">GPA Viajero ▾</a>
                         <ul class="dropdown-menu">
@@ -72,7 +234,7 @@
                             <li><a href="proyectos.html#organizaciones" class="dropdown-link">Organizaciones Aliadas</a></li>
                         </ul>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a href="incidencia.html" class="nav-link">Incidencia Política y Social ▾</a>
                         <ul class="dropdown-menu">
@@ -81,15 +243,8 @@
                             <li><a href="incidencia.html#incidencia-social" class="dropdown-link">Incidencia Social</a></li>
                         </ul>
                     </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a href="noticias.html" class="nav-link">Noticias y Galería ▾</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="noticias.html#noticias" class="dropdown-link">Noticias</a></li>
-                            <li><a href="noticias.html#galeria" class="dropdown-link">Galería</a></li>
-                        </ul>
-                    </li>
-                    
+
+                    <li class="nav-item"><a href="noticias.html" class="nav-link active">Noticias</a></li>
                     <li class="nav-item"><a href="contacto.html" class="nav-link">Contáctanos</a></li>
                 </ul>
             </div>
@@ -104,81 +259,239 @@
         <section class="hero-viajero">
             <div class="slider-container">
                 <div class="slider">
-                    <div class="slide"><img src="../assets/img/View-Noticias/Principal1.webp" alt="Noticias GPA"></div>
-                    <div class="slide"><img src="../assets/img/View-Noticias/Principal2.webp" alt="Actualidad GPA"></div>
-                    <div class="slide"><img src="../assets/img/View-Noticias/Principal3.webp" alt="Comunidad GPA"></div>
+                    <div class="slide"><img src="../assets/img/View-Noticias/Principal1.webp" alt="Slide 1"></div>
+                    <div class="slide"><img src="../assets/img/View-Noticias/Principal2.webp" alt="Slide 2"></div>
                 </div>
             </div>
         </section>
-        
+
         <section class="banner-naranja">
             <div class="container text-center">
-                <h2>Noticias y Galería</h2>
-                <p>En este espacio, te invitamos a descubrir las acciones más recientes y relevantes de la Asociación Grupo de Pensamiento Afrodescendiente (GPA). Aquí encontrarás información sobre nuestros proyectos en curso.</p>
+                <h2>Noticias</h2>
+                <p>Explora las últimas actividades, comunicados y registros fotográficos en movimiento.</p>
             </div>
         </section>
 
-        <section id="noticias" class="noticias-container container">
-            <h3 class="titulo-verde titulo-centro" style="font-size: 1.8rem; margin-bottom: 2rem;">Noticia</h3>
-            
-            <div class="carrusel-wrapper">
-                <button class="carrusel-btn prev"><i class="fas fa-chevron-left"></i></button>
-                
-                <div class="noticia-content">
-                    <div class="noticia-texto">
-                        <p>El GPA surgió en el marco del Decenio Internacional de los Afrodescendientes (2015-2024) de la ONU, ante la necesidad de un espacio inclusivo y crítico para la población afrodescendiente en Ecuador. Tras desvincularse del Consejo de Participación Ciudadana y Control Social (CPCCS), el GPA se consolidó como una organización independiente, obteniendo su personería jurídica el 20 de octubre de 2018.</p>
+        <section class="carrusel-seccion noticias-carrusel container-fluid-full" style="overflow: hidden;">
+            <h3 class="titulo-verde text-center" style="margin-bottom: 2.5rem;">Noticias destacadas</h3>
+
+            <div class="carrusel-track-container" style="margin-bottom: 2rem;">
+                <div class="carrusel-track carrusel-track-1">
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia1.webp" alt="Noticia 1" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Conversatorio de mujeres “Liderar desde la raíz: mujeres, territorio y transformación” U Israel</h4>
+                            <p>En el marco del VI Congreso Internacional de Innovación Tecnológica (CIIT) y el VI Congreso Internacional de Gestión y Sostenibilidad Empresarial (CIGESE), organizados por la Universidad Israel, se desarrolló el conversatorio de mujeres “Liderar desde la raíz: mujeres, territorio y transformación”.</p>
+                            <a href="https://www.instagram.com/p/DY72pOJjZXI/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="noticia-imagen">
-                        <img src="../assets/img/View-Noticias/Noticia.webp" alt="Noticia GPA">
+
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Comunicado1.webp" alt="Comunicado 1" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Charla de Sensibilización Proyecto Vinculación Instituto Cordillera</h4>
+                            <p>En el marco del proyecto de vinculación impulsado junto al Instituto Cordillera, se desarrolló una Charla de Sensibilización sobre la población afrodescendiente y montubia.</p>
+                            <a href="https://www.instagram.com/p/DYr3lB1gcQ1/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Galeria1.webp" alt="Galería 1" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Evento de Presentación Compilado IV Edición y Lanzamiento V Edición TLCC</h4>
+                            <p>En una jornada llena de creatividad, talento y emoción, se llevó a cabo el Evento de Presentación del Compilado de la IV Edición y el Lanzamiento oficial de la V Edición del concurso literario juvenil “Te Lo Cuento en un Cuento”.</p>
+                            <a href="https://www.instagram.com/p/DZXiO9_EaUq/" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia1.webp" alt="Noticia 1" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Conversatorio del Día de la Bomba del Chota</h4>
+                            <p>En conmemoración del Día de la Bomba del Chota, se desarrolló un conversatorio dedicado a reconocer el valor histórico, cultural y artístico de una de las expresiones más representativas del pueblo afroecuatoriano.</p>
+                            <a href="https://www.instagram.com/p/DZcryDMAVIt/" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia1.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Conversatorio de mujeres “Liderar desde la raíz: mujeres, territorio y transformación” U Israel</h4>
+                            <p>En el marco del VI Congreso Internacional de Innovación Tecnológica (CIIT) y el VI Congreso Internacional de Gestión y Sostenibilidad Empresarial (CIGESE), organizados por la Universidad Israel, se desarrolló el conversatorio de mujeres “Liderar desde la raíz: mujeres, territorio y transformación”.</p>
+                            <a href="https://www.instagram.com/p/DY72pOJjZXI/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Comunicado1.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Charla de Sensibilización Proyecto Vinculación Instituto Cordillera</h4>
+                            <p>En el marco del proyecto de vinculación impulsado junto al Instituto Cordillera, se desarrolló una Charla de Sensibilización sobre la población afrodescendiente y montubia.</p>
+                            <a href="https://www.instagram.com/p/DYr3lB1gcQ1/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Galeria1.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Evento de Presentación Compilado IV Edición y Lanzamiento V Edición TLCC</h4>
+                            <p>En una jornada llena de creatividad, talento y emoción, se llevó a cabo el Evento de Presentación del Compilado de la IV Edición y el Lanzamiento oficial de la V Edición del concurso literario juvenil “Te Lo Cuento en un Cuento”.</p>
+                            <a href="https://www.instagram.com/p/DZXiO9_EaUq/" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia1.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Conversatorio del Día de la Bomba del Chota</h4>
+                            <p>En conmemoración del Día de la Bomba del Chota, se desarrolló un conversatorio dedicado a reconocer el valor histórico, cultural y artístico de una de las expresiones más representativas del pueblo afroecuatoriano.</p>
+                            <a href="https://www.instagram.com/p/DZcryDMAVIt/" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                
-                <button class="carrusel-btn next"><i class="fas fa-chevron-right"></i></button>
             </div>
-            
-            <div class="carrusel-dots" style="margin-top: 1rem;">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+
         </section>
 
-        <section id="galeria" class="galeria-section">
-            <div class="container">
-                <h3 class="titulo-verde titulo-centro" style="font-size: 1.8rem; margin-bottom: 2rem;">Galería</h3>
-            </div>
-            
-            <div class="mosaico-galeria container">
-                <div class="foto-galeria"><img src="../assets/img/View-Noticias/Galeria1.webp" alt="Galería GPA 1"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Noticias/Galeria2.webp" alt="Galería GPA 2"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Proyectos/Oratoria.webp" alt="Encuentro de oratoria GPA"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Proyectos/Formacion.webp" alt="Formación de líderes comunitarios"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Proyectos/Capacitacion.webp" alt="Capacitación en derechos humanos"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Proyectos/Sensibilizacion.webp" alt="Jornada de sensibilización"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Incidencia/Dialoga.webp" alt="Espacio GPA Dialoga"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Incidencia/Nacional.webp" alt="Incidencia nacional GPA"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Viajero/Habana.webp" alt="GPA Viajero en La Habana"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Viajero/Manizales.webp" alt="GPA Viajero en Manizales"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Viajero/Geneve.webp" alt="GPA Viajero en Ginebra"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Viajero/Bogota.webp" alt="GPA Viajero en Bogotá"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Proyectos/Cinedis.webp" alt="Proyecto CINEDIS"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Proyectos/Radio.webp" alt="Producción de radio GPA"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Nosotros/Historia.webp" alt="Historia de GPA"></div>
-                <div class="foto-galeria"><img src="../assets/img/View-Nosotros/gpalitoMascota.webp" alt="GPAlito, mascota institucional"></div>
+        <section class="carrusel-seccion noticias-carrusel container-fluid-full" style="overflow: hidden;">
+            <h3 class="titulo-verde text-center" style="margin-bottom: 2.5rem;">Comunicados y Actividades</h3>
+
+            <div class="carrusel-track-container">
+                <div class="carrusel-track carrusel-track-2">
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia2.webp" alt="Noticia 2" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Firma Convenio GPA - Paz y Desarrollo</h4>
+                            <p>Firma del Convenio Marco de Cooperación tiene por objeto establecer las bases de colaboración entre GPA y PyD para la realización de proyectos y acciones conjuntas en los territorios de trabajo en que coinciden, incluyendo la búsqueda de financiamiento nacional e internacional.</p>
+                            <a href="https://www.instagram.com/p/DY3BrdaDZYn/" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Galeria2.webp" alt="Galería 2" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Charla de Sensibilización UEM Calderón y Entrega de Material Etnoeducativo</h4>
+                            <p>Con el objetivo de promover el respeto, la inclusión y el reconocimiento de la diversidad cultural, se desarrolló la Charla de Sensibilización sobre la población afrodescendiente y montubia en la UEM Calderón, en el marco del concurso literario “Te lo Cuento en un Cuento”.</p>
+                            <a href="https://www.instagram.com/p/DZVfnZrAGjY/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Comunicado2.webp" alt="Comunicado 2" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Charla de Sensibilización Unidad Educativa Nacional Tumbaco</h4>
+                            <p>Fortaleciendo el tejido social y la participación activa en Quito.</p>
+                            <a href="https://www.instagram.com/p/DZbLk2GkXY7/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia2.webp" alt="Noticia 2" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Reunión Dra. Rosalía Arteaga - Fundación FIDAL</h4>
+                            <p>Se llevó a cabo una reunión con la Dra. Rosalía Arteaga y la Fundación FIDAL, un espacio de diálogo e intercambio orientado a compartir las experiencias y proyectos impulsados desde el GPA en favor de la educación, la cultura y el fortalecimiento comunitario en el Ecuador.</p>
+                            <a href="https://www.instagram.com/p/DY4hvHcHf5k/" target="_blank"
+                                class="btn-enlace-tarjeta">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia2.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Firma Convenio GPA - Paz y Desarrollo</h4>
+                            <p>Firma del Convenio Marco de Cooperación tiene por objeto establecer las bases de colaboración entre GPA y PyD para la realización de proyectos y acciones conjuntas en los territorios de trabajo en que coinciden, incluyendo la búsqueda de financiamiento nacional e internacional.</p>
+                            <a href="https://www.instagram.com/p/DY3BrdaDZYn/" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Galeria2.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Charla de Sensibilización UEM Calderón y Entrega de Material Etnoeducativo</h4>
+                            <p>Con el objetivo de promover el respeto, la inclusión y el reconocimiento de la diversidad cultural, se desarrolló la Charla de Sensibilización sobre la población afrodescendiente y montubia en la UEM Calderón, en el marco del concurso literario “Te lo Cuento en un Cuento”.</p>
+                            <a href="https://www.instagram.com/p/DZVfnZrAGjY/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Comunicado2.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Charla de Sensibilización Unidad Educativa Nacional Tumbaco</h4>
+                            <p>Fortaleciendo el tejido social y la participación activa en Quito.</p>
+                            <a href="https://www.instagram.com/p/DZbLk2GkXY7/?img_index=1" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-lugar carrusel-card" aria-hidden="true">
+                        <div class="tarjeta-lugar-top borde-naranja noticias-carrusel-marco">
+                            <img src="../assets/img/View-Noticias/Noticia2.webp" alt="" class="img-foto noticias-carrusel-img" width="280" height="135">
+                        </div>
+                        <div class="tarjeta-lugar-bottom">
+                            <h4>Reunión Dra. Rosalía Arteaga - Fundación FIDAL</h4>
+                            <p>Se llevó a cabo una reunión con la Dra. Rosalía Arteaga y la Fundación FIDAL, un espacio de diálogo e intercambio orientado a compartir las experiencias y proyectos impulsados desde el GPA en favor de la educación, la cultura y el fortalecimiento comunitario en el Ecuador.</p>
+                            <a href="https://www.instagram.com/p/DY4hvHcHf5k/" target="_blank"
+                                class="btn-enlace-tarjeta" tabindex="-1">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-
-    <div class="podcast-widget">
-        </div>
 
     <footer class="footer-gris">
         <div class="container text-center">
             <div class="footer-logo">
                 <img src="../assets/img/LogoGPA.webp" alt="Logo GPA Ecuador">
             </div>
+            <p class="footer-copyright">© 2026</p>
         </div>
     </footer>
+
     <script src="../js/script.js"></script>
 </body>
+
 </html>

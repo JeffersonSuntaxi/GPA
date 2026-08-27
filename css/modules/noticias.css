@@ -6,6 +6,87 @@
     margin: 0 auto;
 }
 
+/* Ajustes del carrusel de noticias */
+.carrusel-seccion {
+    padding: 4rem 0;
+}
+
+.carrusel-track-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrusel-track {
+    display: flex;
+    width: max-content;
+    gap: 1.25rem;
+}
+
+.carrusel-track-1 {
+    animation: carruselNoticias 36s linear infinite;
+}
+
+.carrusel-track-2 {
+    animation: carruselNoticiasReversa 32s linear infinite;
+}
+
+.carrusel-track-container:hover .carrusel-track {
+    animation-play-state: paused;
+}
+
+.carrusel-card {
+    flex: 0 0 clamp(240px, 26vw, 330px);
+    max-width: clamp(240px, 26vw, 330px);
+}
+
+.carrusel-card .tarjeta-lugar-top {
+    height: 150px;
+}
+
+.carrusel-card .img-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@keyframes carruselNoticias {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-50% - 0.625rem));
+    }
+}
+
+@keyframes carruselNoticiasReversa {
+    from {
+        transform: translateX(calc(-50% - 0.625rem));
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carrusel-seccion {
+        padding: 3rem 0;
+    }
+
+    .carrusel-track {
+        gap: 0.85rem;
+    }
+
+    .carrusel-card {
+        flex-basis: 220px;
+        max-width: 220px;
+    }
+
+    .carrusel-card .tarjeta-lugar-top {
+        height: 125px;
+    }
+}
+
 /* --- CARRUSEL DE NOTICIAS --- */
 .carrusel-wrapper {
     display: flex;
@@ -109,5 +190,38 @@
     .mosaico-galeria {
         grid-template-columns: repeat(2, 1fr); /* 2 fotos por fila en celulares */
         gap: 2px;
+    }
+}
+
+/* Tamaño específico de las imágenes usadas en pages/noticias.html */
+.noticias-carrusel .carrusel-card {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
+.noticias-carrusel .noticias-carrusel-marco {
+    height: 135px;
+    min-height: 135px;
+    overflow: hidden;
+}
+
+.noticias-carrusel .noticias-carrusel-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    .noticias-carrusel .carrusel-card {
+        flex-basis: 215px;
+        max-width: 215px;
+    }
+
+    .noticias-carrusel .noticias-carrusel-marco {
+        height: 115px;
+        min-height: 115px;
     }
 }
