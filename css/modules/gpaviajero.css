@@ -159,10 +159,25 @@ body:has(.viajero-main) .podcast-widget:empty {
     object-fit: cover;
 }
 
+.mapa-provincia-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.mapa-provincia-layout > .mapa-info-contenedor {
+    flex: 1 1 600px;
+    width: auto;
+    min-width: 0;
+}
+
 .mapa-info-contenedor {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
+    gap: 1.5rem;
     width: 100%;
     min-height: 380px;
     padding: 2rem;
@@ -264,18 +279,103 @@ body:has(.viajero-main) .podcast-widget:empty {
     stroke-width: 12;
     cursor: pointer;
     pointer-events: all;
-    transition: fill 0.2s ease, stroke 0.2s ease;
+    transition: fill 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
 }
 
 #contenedor-mapa-ecuador .viajero-zona:hover,
-#contenedor-mapa-ecuador .viajero-zona:focus,
-#contenedor-mapa-ecuador .viajero-zona.activa {
-    fill: rgba(230, 109, 37, 0.32);
-    stroke: var(--brand-orange);
+#contenedor-mapa-ecuador .viajero-zona:focus {
+    fill: rgba(230, 109, 37, 0.38);
+    stroke: rgba(230, 109, 37, 0.9);
     outline: none;
 }
 
+#contenedor-mapa-ecuador .viajero-zona.activa {
+    fill: rgba(230, 109, 37, 0.68);
+    stroke: var(--brand-orange);
+    filter: drop-shadow(0 8px 8px rgba(230, 109, 37, 0.28));
+    outline: none;
+}
+
+.provincia-card {
+    position: relative;
+    z-index: 2;
+    display: none;
+    flex: 0 0 min(100%, 360px);
+    width: min(100%, 360px);
+    overflow: hidden;
+    text-align: left;
+    background: #ffffff;
+    border: 1px solid rgba(17, 97, 73, 0.14);
+    border-top: 5px solid var(--brand-orange);
+    border-radius: 8px;
+    box-shadow: 0 20px 44px rgba(7, 40, 32, 0.2);
+    transform: translateY(8px);
+    animation: viajeroCardIn 0.22s ease forwards;
+}
+
+.provincia-card.visible {
+    display: flex;
+    flex-direction: column;
+}
+
+.provincia-card-media {
+    width: 100%;
+    height: 210px;
+    background: #edf3ee;
+}
+
+.provincia-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.provincia-card-body {
+    padding: 1.35rem 1.4rem 1.45rem;
+}
+
+.provincia-card-label {
+    display: inline-flex;
+    margin-bottom: 0.45rem;
+    padding: 0.28rem 0.65rem;
+    color: var(--brand-green);
+    background: rgba(17, 97, 73, 0.08);
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.provincia-card h4 {
+    margin-bottom: 0.75rem;
+    color: var(--brand-green);
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.provincia-card ul {
+    padding-left: 1.1rem;
+}
+
+.provincia-card li,
+.provincia-card p {
+    margin-bottom: 0.45rem;
+    color: #425b52;
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
+
+@keyframes viajeroCardIn {
+    to {
+        transform: translateY(0);
+    }
+}
+
 #contenedor-mapa-mundo {
+    flex: 1 1 620px;
+    min-width: 0;
     width: min(100%, 790px);
 }
 
@@ -286,7 +386,7 @@ body:has(.viajero-main) .podcast-widget:empty {
 }
 
 #contenedor-mapa-mundo svg .viajero-pais {
-    fill: rgba(230, 109, 37, 0.58);
+    fill: rgba(230, 109, 37, 0.2);
     stroke: var(--brand-orange);
     stroke-width: 0.8;
     cursor: pointer;
@@ -299,6 +399,12 @@ body:has(.viajero-main) .podcast-widget:empty {
     fill: rgba(230, 109, 37, 0.82);
     stroke: #0f5b46;
     outline: none;
+}
+
+.viajero-card-internacional {
+    left: auto !important;
+    top: auto !important;
+    pointer-events: auto;
 }
 
 .mapa-tooltip {
@@ -470,8 +576,25 @@ body:has(.viajero-main) .podcast-widget:empty {
     }
 
     .mapa-info-contenedor {
+        flex-direction: column;
         min-height: 280px;
         padding: 1rem;
+    }
+
+    .mapa-provincia-layout {
+        flex-direction: column;
+    }
+
+    .mapa-provincia-layout > .mapa-info-contenedor {
+        width: 100%;
+    }
+
+    .provincia-card {
+        width: 100%;
+    }
+
+    .provincia-card-media {
+        height: 170px;
     }
 
     .viajero-destinos-internacional {

@@ -249,11 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const panelProvincia = document.getElementById('panel-info');
     const nombreProvincia = document.getElementById('nombre-provincia');
     const contenidoProvincia = document.getElementById('contenido-provincia');
+    const imagenProvincia = document.getElementById('imagen-provincia');
 
-    if (mapaEcuador && panelProvincia && nombreProvincia && contenidoProvincia) {
+    if (mapaEcuador && panelProvincia && nombreProvincia && contenidoProvincia && imagenProvincia) {
         const provincias = {
             esmeraldas: {
                 nombre: 'Esmeraldas',
+                imagen: '../assets/img/View-Viajero/Esmeraldas1.webp',
                 actividades: [
                     'Reunión de Trabajo y Taller de Fortalecimiento Organizacional para el Movimiento Afroecuatoriano Cimarrón (2017).',
                     'Programa de radio sobre la identidad y la conexión con el territorio (2017).',
@@ -262,18 +264,21 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             carchi: {
                 nombre: 'Carchi',
+                imagen: '../assets/img/View-Viajero/Carchi1.webp',
                 actividades: [
                     'Desarrollo de Taller Amando Nuestra Cuerpa Afroecuatoriana, Proyecto Afropoderosas Ecuador, en La Concepción (2022).'
                 ]
             },
             imbabura: {
                 nombre: 'Imbabura',
+                imagen: '../assets/img/View-Viajero/Imbabura1.webp',
                 actividades: [
                     'Entrega de donaciones para niños, en el marco de la iniciativa "Cajita de Zapatos" en coordinación con la Coalición Ciudadana de Organizaciones Sociales del Ecuador (CCOSE), en Urcuquí (2021).'
                 ]
             },
             guayas: {
                 nombre: 'Guayas',
+                imagen: '../assets/img/View-Viajero/Guayas1.webp',
                 actividades: [
                     'Participación en el Foro Nacional de la Juventud Ecuatoriana (2018).',
                     'Reunión con Movimiento Afroecuatoriano.',
@@ -282,6 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             pichincha: {
                 nombre: 'Pichincha',
+                imagen: '../assets/img/View-Viajero/Pichincha1.webp',
                 actividades: [
                     'Entrega de donaciones para niños en el marco de la iniciativa "Cajita de Zapatos".',
                     'Desarrollo del Taller Armando Nuestro Cuerpo Afroecuatoriano.'
@@ -289,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             manabi: {
                 nombre: 'Manabí',
+                imagen: '../assets/img/View-Viajero/Manabi1.jpg',
                 actividades: [
                     'Taller "Redescubriendo la vida en comunidad", San Pedro de Cajape.',
                     'Entrega de donaciones para niños.'
@@ -296,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             eloro: {
                 nombre: 'El Oro',
+                imagen: '../assets/img/View-Viajero/Eloro.webp',
                 actividades: [
                     'Entrega de donaciones para niños, en el marco de la iniciativa "Cajita de Zapatos" en coordinación con la Coalición Ciudadana de Organizaciones Sociales del Ecuador (CCOSE), en Machala y Puerto Bolívar (2021).'
                 ]
@@ -303,8 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const zonas = mapaEcuador.querySelectorAll('.viajero-zona');
-        const contenedorMapa = mapaEcuador.closest('.mapa-info-contenedor');
-        let tooltipFijado = false;
 
         const limpiarZonas = () => zonas.forEach((zona) => zona.classList.remove('activa'));
 
@@ -315,82 +321,23 @@ document.addEventListener('DOMContentLoaded', () => {
             limpiarZonas();
             zona.classList.add('activa');
             nombreProvincia.textContent = info.nombre;
+            imagenProvincia.src = info.imagen;
+            imagenProvincia.alt = `Imagen de ${info.nombre}`;
             contenidoProvincia.innerHTML = `<ul>${info.actividades.map((actividad) => `<li>${actividad}</li>`).join('')}</ul>`;
             panelProvincia.classList.add('visible');
         };
 
-        const ubicarTooltip = (clientX, clientY) => {
-            const contenedorRect = contenedorMapa.getBoundingClientRect();
-            const panelRect = panelProvincia.getBoundingClientRect();
-            const margen = 12;
-            let left = clientX - contenedorRect.left + 18;
-            let top = clientY - contenedorRect.top + 18;
-
-            if (left + panelRect.width > contenedorRect.width) {
-                left = clientX - contenedorRect.left - panelRect.width - 18;
-            }
-
-            if (top + panelRect.height > contenedorRect.height) {
-                top = clientY - contenedorRect.top - panelRect.height - 18;
-            }
-
-            panelProvincia.style.left = `${Math.max(margen, left)}px`;
-            panelProvincia.style.top = `${Math.max(margen, top)}px`;
-        };
-
-        const ubicarTooltipEnZona = (zona) => {
-            const rect = zona.getBoundingClientRect();
-            ubicarTooltip(rect.left + rect.width / 2, rect.top + rect.height / 2);
-        };
-
-        const ocultarTooltip = () => {
-            if (tooltipFijado) return;
-            limpiarZonas();
-            panelProvincia.classList.remove('visible');
-        };
-
         zonas.forEach((zona) => {
-            zona.addEventListener('pointerenter', (event) => {
-                if (event.pointerType === 'touch') return;
-                tooltipFijado = false;
+            zona.addEventListener('click', () => {
                 mostrarProvincia(zona);
-                ubicarTooltip(event.clientX, event.clientY);
             });
 
-            zona.addEventListener('pointermove', (event) => {
-                if (!tooltipFijado && event.pointerType !== 'touch') {
-                    ubicarTooltip(event.clientX, event.clientY);
+            zona.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    mostrarProvincia(zona);
                 }
             });
-
-            zona.addEventListener('pointerleave', ocultarTooltip);
-
-            zona.addEventListener('click', (event) => {
-                tooltipFijado = true;
-                mostrarProvincia(zona);
-                ubicarTooltip(event.clientX, event.clientY);
-            });
-
-            zona.addEventListener('focus', () => {
-                tooltipFijado = false;
-                mostrarProvincia(zona);
-                ubicarTooltipEnZona(zona);
-            });
-
-            zona.addEventListener('blur', ocultarTooltip);
-        });
-
-        document.addEventListener('click', (event) => {
-            if (mapaEcuador.contains(event.target)) return;
-            tooltipFijado = false;
-            ocultarTooltip();
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                tooltipFijado = false;
-                ocultarTooltip();
-            }
         });
     }
 
@@ -399,23 +346,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const panelPais = document.getElementById('panel-info-mundo');
     const nombrePais = document.getElementById('nombre-pais');
     const contenidoPais = document.getElementById('contenido-pais');
+    const imagenPais = document.getElementById('imagen-pais');
 
-    if (mapaMundo && panelPais && nombrePais && contenidoPais) {
+    if (mapaMundo && panelPais && nombrePais && contenidoPais && imagenPais) {
         const paises = {
             CU: {
                 nombre: 'Cuba',
+                imagen: '../assets/img/View-Viajero/Cuba.webp',
                 actividades: [
                     'La Habana: Participación en la I Escuela de Posgrado sobre el Decenio de los Pueblos Afrodescendientes (2017).'
                 ]
             },
             BR: {
                 nombre: 'Brasil',
+                imagen: '../assets/img/View-Viajero/Salvadorwebp.webp',
                 actividades: [
                     'Salvador de Bahía: Participación en el Foro Social Mundial (2018).'
                 ]
             },
             CO: {
                 nombre: 'Colombia',
+                imagen: '../assets/img/View-Viajero/Colombia1.webp',
                 actividades: [
                     'Manizales: Participación en la III Bienal de Infancias y Juventudes - Universidad de Manizales (2018).',
                     'Bogotá: Participación en el Primer Encuentro Internacional de Investigadores y en el XI Congreso de la Asociación Latinoamericana de Población (2024).'
@@ -423,23 +374,23 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             MX: {
                 nombre: 'México',
+                imagen: '../assets/img/View-Viajero/Mexico.webp',
                 actividades: [
                     'Acapulco: Participación en el I Encuentro Regional de Afrodescendientes (2019).'
                 ]
             },
             CH: {
                 nombre: 'Suiza',
+                imagen: '../assets/img/View-Viajero/Suiza.webp',
                 actividades: [
                     'Geneve: Presentación del Informe de Coalición a los Miembros del Comité para la Eliminación de la Discriminación Racial (CERD) (2019).'
                 ]
             }
         };
 
-        const contenedorMapa = mapaMundo.closest('.mapa-info-contenedor');
         const zonasPais = Object.keys(paises)
             .map((codigo) => mapaMundo.querySelector(`#${codigo}`))
             .filter(Boolean);
-        let tooltipFijado = false;
 
         zonasPais.forEach((pais) => {
             pais.classList.add('viajero-pais');
@@ -458,87 +409,39 @@ document.addEventListener('DOMContentLoaded', () => {
             limpiarPaises();
             pais.classList.add('activa');
             nombrePais.textContent = info.nombre;
+            imagenPais.src = info.imagen;
+            imagenPais.alt = `Imagen de ${info.nombre}`;
             contenidoPais.innerHTML = `<ul>${info.actividades.map((actividad) => `<li>${actividad}</li>`).join('')}</ul>`;
             panelPais.classList.add('visible');
         };
 
-        const ubicarTooltip = (clientX, clientY) => {
-            const contenedorRect = contenedorMapa.getBoundingClientRect();
-            const panelRect = panelPais.getBoundingClientRect();
-            const margen = 12;
-            let left = clientX - contenedorRect.left + 18;
-            let top = clientY - contenedorRect.top + 18;
-
-            if (left + panelRect.width > contenedorRect.width) {
-                left = clientX - contenedorRect.left - panelRect.width - 18;
-            }
-
-            if (top + panelRect.height > contenedorRect.height) {
-                top = clientY - contenedorRect.top - panelRect.height - 18;
-            }
-
-            panelPais.style.left = `${Math.max(margen, left)}px`;
-            panelPais.style.top = `${Math.max(margen, top)}px`;
-        };
-
-        const ubicarTooltipEnPais = (pais) => {
-            const rect = pais.getBoundingClientRect();
-            ubicarTooltip(rect.left + rect.width / 2, rect.top + rect.height / 2);
-        };
-
-        const ocultarTooltip = () => {
-            if (tooltipFijado) return;
-            limpiarPaises();
-            panelPais.classList.remove('visible');
-        };
-
         zonasPais.forEach((pais) => {
-            pais.addEventListener('pointerenter', (event) => {
-                if (event.pointerType === 'touch') return;
-                tooltipFijado = false;
+            pais.addEventListener('click', () => {
                 mostrarPais(pais);
-                ubicarTooltip(event.clientX, event.clientY);
-            });
-
-            pais.addEventListener('pointermove', (event) => {
-                if (!tooltipFijado && event.pointerType !== 'touch') {
-                    ubicarTooltip(event.clientX, event.clientY);
-                }
-            });
-
-            pais.addEventListener('pointerleave', ocultarTooltip);
-
-            pais.addEventListener('click', (event) => {
-                tooltipFijado = true;
-                mostrarPais(pais);
-                ubicarTooltip(event.clientX, event.clientY);
             });
 
             pais.addEventListener('focus', () => {
-                tooltipFijado = false;
                 mostrarPais(pais);
-                ubicarTooltipEnPais(pais);
             });
 
-            pais.addEventListener('blur', ocultarTooltip);
-        });
-
-        document.addEventListener('click', (event) => {
-            if (mapaMundo.contains(event.target)) return;
-            tooltipFijado = false;
-            ocultarTooltip();
+            pais.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    mostrarPais(pais);
+                }
+            });
         });
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
-                tooltipFijado = false;
-                ocultarTooltip();
+                limpiarPaises();
+                panelPais.classList.remove('visible');
             }
         });
     }
 
     // Pie consistente en todas las páginas.
-    document.querySelectorAll('.footer-gris .container').forEach((footer) => {
+    /*document.querySelectorAll('.footer-gris .container').forEach((footer) => {
         if (!footer.querySelector('.footer-tagline')) {
             const tagline = document.createElement('p');
             tagline.className = 'footer-tagline';
@@ -548,12 +451,12 @@ document.addEventListener('DOMContentLoaded', () => {
             socials.innerHTML = `
                 <a href="https://www.facebook.com/gpafroficial" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/gpafroficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/gpafroficial" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://x.com/gpafroficial" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg></a>
                 <a href="https://api.whatsapp.com/send?phone=593963593763" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             `;
             const copyright = footer.querySelector('.footer-copyright');
             copyright?.before(tagline, socials);
             if (copyright) copyright.textContent = `© ${new Date().getFullYear()} GPA Ecuador. Todos los derechos reservados.`;
         }
-    });
+    });*/
 });
