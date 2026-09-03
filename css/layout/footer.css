@@ -1,6 +1,6 @@
 /* css/layout/footer.css */
 .footer-gris {
-    background-color: var(--brand-grey);
+    background-color: var(--brand-green-dark);
     padding: 3rem 1rem;
     width: 100%;
 }

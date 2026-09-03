@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario | Sitio Web GPA Ecuador</title>
+    <style>
+        :root {
+            --verde: #073425;
+            --verde-claro: #0f6b4f;
+            --naranja: #f49a12;
+            --gris: #f4f6f5;
+            --texto: #22352f;
+            --borde: #dfe8e4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--texto);
+            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.55;
+        }
+
+        .page {
+            width: min(100%, 1060px);
+            margin: 0 auto;
+            padding: 32px 24px 56px;
+        }
+
+        .cover {
+            min-height: 78vh;
+            display: grid;
+            align-content: center;
+            gap: 28px;
+            padding: 44px;
+            color: #ffffff;
+            background: linear-gradient(rgba(7, 52, 37, 0.88), rgba(7, 52, 37, 0.88)), url("screenshots/inicio.png") center / cover;
+            border-radius: 10px;
+        }
+
+        .cover img {
+            width: 180px;
+            max-width: 60%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        h1, h2, h3 {
+            margin: 0 0 12px;
+            color: var(--verde);
+            line-height: 1.18;
+        }
+
+        .cover h1 {
+            max-width: 780px;
+            color: #ffffff;
+            font-size: clamp(2.2rem, 6vw, 4.8rem);
+            letter-spacing: 0;
+        }
+
+        .cover p {
+            max-width: 720px;
+            margin: 0;
+            font-size: 1.18rem;
+        }
+
+        .meta {
+            display: grid;
+            gap: 8px;
+            max-width: 520px;
+            padding: 18px 20px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 8px;
+        }
+
+        section {
+            margin-top: 42px;
+        }
+
+        .toc {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin: 20px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .toc a {
+            display: block;
+            padding: 14px 16px;
+            color: var(--verde);
+            text-decoration: none;
+            background: var(--gris);
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .summary-grid,
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            box-shadow: 0 10px 24px rgba(7, 52, 37, 0.07);
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+        }
+
+        .shot {
+            margin: 18px 0 22px;
+            padding: 12px;
+            background: var(--gris);
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            break-inside: avoid;
+        }
+
+        .shot img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid rgba(7, 52, 37, 0.16);
+        }
+
+        .caption {
+            margin: 10px 4px 0;
+            color: #52645f;
+            font-size: 0.92rem;
+        }
+
+        ol,
+        ul {
+            padding-left: 22px;
+        }
+
+        li + li {
+            margin-top: 6px;
+        }
+
+        .note {
+            padding: 16px 18px;
+            background: #fff8ea;
+            border-left: 5px solid var(--naranja);
+            border-radius: 8px;
+        }
+
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .feature-table th,
+        .feature-table td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--borde);
+        }
+
+        .feature-table th {
+            color: #ffffff;
+            background: var(--verde);
+        }
+
+        .badge {
+            display: inline-block;
+            margin: 0 6px 6px 0;
+            padding: 6px 10px;
+            color: var(--verde);
+            background: #eef7f3;
+            border: 1px solid #cae3d9;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .footer-note {
+            margin-top: 52px;
+            padding-top: 18px;
+            color: #52645f;
+            border-top: 1px solid var(--borde);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 780px) {
+            .page {
+                padding: 18px 14px 36px;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 30px 22px;
+            }
+
+            .toc,
+            .summary-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+            }
+
+            .page {
+                width: 100%;
+                padding: 0;
+            }
+
+            .cover {
+                min-height: 92vh;
+                border-radius: 0;
+            }
+
+            section {
+                break-inside: avoid;
+            }
+
+            .shot {
+                box-shadow: none;
+            }
+
+            a {
+                color: inherit;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="cover">
+            <img src="../assets/img/LogoMenuGPA.webp" alt="Logo GPA">
+            <div>
+                <h1>Manual de Usuario del Sitio Web GPA Ecuador</h1>
+                <p>Guía para navegar, consultar información, usar mapas interactivos, revisar noticias y contactar al Grupo de Pensamiento Afrodescendiente.</p>
+            </div>
+            <div class="meta">
+                <span><strong>Sitio:</strong> GPA Ecuador - Grupo de Pensamiento Afrodescendiente</span>
+                <span><strong>Dirigido a:</strong> visitantes, aliados, estudiantes, comunidad y público general</span>
+                <span><strong>Versión del manual:</strong> 2026</span>
+            </div>
+        </header>
+
+        <section id="indice">
+            <h2>Índice</h2>
+            <ul class="toc">
+                <li><a href="#objetivo">1. Objetivo del manual</a></li>
+                <li><a href="#requisitos">2. Requisitos de uso</a></li>
+                <li><a href="#navegacion">3. Navegación general</a></li>
+                <li><a href="#secciones">4. Secciones del sitio</a></li>
+                <li><a href="#funciones">5. Funciones interactivas</a></li>
+                <li><a href="#contacto">6. Contacto y redes sociales</a></li>
+                <li><a href="#movil">7. Uso en celular</a></li>
+                <li><a href="#problemas">8. Problemas frecuentes</a></li>
+            </ul>
+        </section>
+
+        <section id="objetivo">
+            <h2>1. Objetivo del Manual</h2>
+            <p>Este manual explica cómo utilizar el sitio web GPA Ecuador. El documento describe las opciones del menú, el contenido de cada página, los botones principales, los mapas interactivos, el formulario de contacto y los accesos a redes sociales.</p>
+            <div class="summary-grid">
+                <article class="card">
+                    <h3>Consulta institucional</h3>
+                    <p>Permite conocer historia, misión, visión, objetivos, valores, GPAlito y autoridades del GPA.</p>
+                </article>
+                <article class="card">
+                    <h3>Consulta de proyectos</h3>
+                    <p>Muestra iniciativas, alianzas, convenios, organizaciones aliadas y acciones de incidencia.</p>
+                </article>
+                <article class="card">
+                    <h3>Participación y contacto</h3>
+                    <p>Ofrece enlaces a redes sociales, WhatsApp, noticias externas y formulario de contacto.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="requisitos">
+            <h2>2. Requisitos de Uso</h2>
+            <ul>
+                <li>Dispositivo con navegador web actualizado: Chrome, Edge, Firefox, Safari u otro navegador moderno.</li>
+                <li>Conexión a internet para abrir enlaces externos como Instagram, Facebook, X, WhatsApp y fuentes de iconos.</li>
+                <li>Pantalla de escritorio, tablet o celular. El sitio adapta el menú para dispositivos pequeños.</li>
+            </ul>
+            <p class="note">El formulario de contacto muestra un mensaje de confirmación local. Para enviar correos reales se debe conectar el sitio a un backend o servicio de correo.</p>
+        </section>
+
+        <section id="navegacion">
+            <h2>3. Navegación General</h2>
+            <p>El sitio utiliza una barra superior fija. Desde allí se puede ingresar a las páginas principales y a subsecciones internas mediante menús desplegables.</p>
+            <div class="shot">
+                <img src="screenshots/inicio.png" alt="Vista de inicio del sitio GPA">
+                <p class="caption">Vista de inicio con menú principal, logo, enlaces de navegación y barra lateral de redes sociales.</p>
+            </div>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Logo GPA</td>
+                        <td>Regresa a la página de inicio.</td>
+                    </tr>
+                    <tr>
+                        <td>Nosotros</td>
+                        <td>Permite consultar Historia, GPAlito y Autoridades.</td>
+                    </tr>
+                    <tr>
+                        <td>GPA Viajero</td>
+                        <td>Abre las acciones nacionales e internacionales del GPA.</td>
+                    </tr>
+                    <tr>
+                        <td>Proyectos y Alianzas</td>
+                        <td>Accede a proyectos, convenios y organizaciones aliadas.</td>
+                    </tr>
+                    <tr>
+                        <td>Incidencia Política y Social</td>
+                        <td>Muestra acciones de diálogo e incidencia local, nacional y regional.</td>
+                    </tr>
+                    <tr>
+                        <td>Noticias</td>
+                        <td>Presenta noticias destacadas, comunicados y actividades.</td>
+                    </tr>
+                    <tr>
+                        <td>Contáctanos</td>
+                        <td>Abre el formulario, datos de contacto y créditos del sitio.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="secciones">
+            <h2>4. Secciones del Sitio</h2>
+
+            <h3>4.1 Nosotros</h3>
+            <p>La página inicial presenta la información institucional del GPA: historia, misión, visión, objetivos, valores, la mascota GPAlito y el directorio de autoridades.</p>
+            <ol>
+                <li>Ingrese al sitio o seleccione el logo GPA.</li>
+                <li>Use el menú Nosotros para ir directamente a Historia, GPAlito o Autoridades.</li>
+                <li>Desplace la página hacia abajo para revisar cada bloque informativo con su imagen.</li>
+            </ol>
+
+            <h3>4.2 GPA Viajero</h3>
+            <p>Esta sección muestra la presencia del GPA en Ecuador y otros países. Incluye mapas interactivos y tarjetas de destinos.</p>
+            <div class="shot">
+                <img src="screenshots/gpaviajero.png" alt="Vista de GPA Viajero">
+                <p class="caption">GPA Viajero permite explorar acciones nacionales e internacionales mediante mapas y tarjetas de ubicación.</p>
+            </div>
+            <ol>
+                <li>Seleccione GPA Viajero en el menú superior.</li>
+                <li>En Acciones Nacionales, señale o toque una provincia del mapa para ver actividades.</li>
+                <li>En Acciones Internacionales, señale o toque un país destacado para consultar las acciones realizadas.</li>
+                <li>Revise las tarjetas de destinos para identificar ciudades y países visitados.</li>
+            </ol>
+
+            <h3>4.3 Proyectos y Alianzas</h3>
+            <p>Esta página reúne programas, concursos, publicaciones, acciones de formación, convenios institucionales y organizaciones aliadas.</p>
+            <div class="shot">
+                <img src="screenshots/proyectos.png" alt="Vista de Proyectos y Alianzas">
+                <p class="caption">Proyectos y Alianzas organiza el contenido en bloques con imágenes, tarjetas y enlaces internos.</p>
+            </div>
+            <p><span class="badge">Oratoria</span><span class="badge">Te lo cuento en un cuento</span><span class="badge">Transformando Narrativas</span><span class="badge">Evocando Raíces</span><span class="badge">Formación de Líderes</span><span class="badge">Convenios</span></p>
+
+            <h3>4.4 Incidencia Política y Social</h3>
+            <p>Presenta los espacios de diálogo, acciones de incidencia local, nacional y regional, y el trabajo del GPA en participación ciudadana y políticas públicas.</p>
+            <div class="shot">
+                <img src="screenshots/incidencia.png" alt="Vista de Incidencia Política y Social">
+                <p class="caption">Sección de Incidencia Política y Social con bloques informativos e imágenes de apoyo.</p>
+            </div>
+            <ol>
+                <li>Seleccione Incidencia Política y Social en el menú.</li>
+                <li>Use el submenú para ir a GPA Dialoga, Redes Integradas o Incidencia Social.</li>
+                <li>Lea cada bloque para conocer el alcance local, nacional y regional.</li>
+            </ol>
+
+            <h3>4.5 Noticias</h3>
+            <p>Noticias muestra carruseles automáticos con actividades, comunicados y enlaces externos para leer más en Instagram.</p>
+            <div class="shot">
+                <img src="screenshots/noticias.png" alt="Vista de Noticias">
+                <p class="caption">Página de noticias con carruseles de tarjetas y botón Leer más.</p>
+            </div>
+            <ol>
+                <li>Ingrese a Noticias desde el menú principal.</li>
+                <li>Observe las tarjetas del carrusel. Al colocar el cursor encima, el movimiento puede pausarse.</li>
+                <li>Pulse Leer más para abrir la publicación relacionada en una pestaña externa.</li>
+            </ol>
+
+            <h3>4.6 Contáctanos</h3>
+            <p>La página de contacto contiene un formulario, correo, número telefónico y un botón para ver créditos del desarrollo web.</p>
+            <div class="shot">
+                <img src="screenshots/contacto.png" alt="Vista de Contáctanos">
+                <p class="caption">Formulario de contacto, datos institucionales y botón de créditos.</p>
+            </div>
+        </section>
+
+        <section id="funciones">
+            <h2>5. Funciones Interactivas</h2>
+            <div class="steps-grid">
+                <article class="card">
+                    <h3>Menús desplegables</h3>
+                    <p>Al pasar el cursor sobre una opción con flecha, se muestran enlaces directos a subsecciones. En celular, el menú se abre desde el icono de tres líneas.</p>
+                </article>
+                <article class="card">
+                    <h3>Mapas interactivos</h3>
+                    <p>En GPA Viajero, al señalar, tocar o enfocar una provincia o país, aparece un panel con actividades. Use Esc o toque fuera del mapa para cerrar.</p>
+                </article>
+                <article class="card">
+                    <h3>Galería ampliable</h3>
+                    <p>Si una página muestra imágenes de galería, pulse una imagen para abrirla en vista ampliada. Cierre con el botón X, Esc o tocando fuera.</p>
+                </article>
+                <article class="card">
+                    <h3>Carruseles</h3>
+                    <p>Las imágenes principales cambian automáticamente. En Noticias, las tarjetas se desplazan para mostrar más contenido.</p>
+                </article>
+                <article class="card">
+                    <h3>Barra de progreso</h3>
+                    <p>Al desplazarse por la página, una barra superior indica el avance de lectura.</p>
+                </article>
+                <article class="card">
+                    <h3>Créditos</h3>
+                    <p>En Contáctanos, pulse el botón Créditos para mostrar u ocultar la información del equipo de desarrollo.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>6. Contacto y Redes Sociales</h2>
+            <p>El sitio ofrece una barra lateral con accesos rápidos a redes sociales. Estos enlaces se abren fuera del sitio web.</p>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th>Canal</th>
+                        <th>Acción del usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WhatsApp</td>
+                        <td>Pulse el icono de WhatsApp para abrir una conversación con GPA.</td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>Pulse el icono de Facebook para visitar la página oficial.</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram</td>
+                        <td>Pulse el icono de Instagram o los botones Leer más de Noticias para abrir publicaciones.</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>Pulse el icono de X para visitar el perfil de GPA.</td>
+                    </tr>
+                    <tr>
+                        <td>Formulario</td>
+                        <td>Escriba nombre, correo y mensaje. Al enviar, el sitio muestra que el formulario está listo para conectarse a un servicio de correo.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="movil">
+            <h2>7. Uso en Celular</h2>
+            <ol>
+                <li>Abra el sitio desde el navegador del celular.</li>
+                <li>Pulse el icono de tres líneas ubicado en la parte superior para abrir el menú.</li>
+                <li>Seleccione la página o subsección deseada.</li>
+                <li>Use desplazamiento vertical para leer el contenido.</li>
+                <li>En mapas interactivos, toque la provincia o país para mostrar el panel de información.</li>
+            </ol>
+        </section>
+
+        <section id="problemas">
+            <h2>8. Problemas Frecuentes</h2>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th>Situación</th>
+                        <th>Solución recomendada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No abre una red social</td>
+                        <td>Revise la conexión a internet o permita ventanas/pestañas emergentes del navegador.</td>
+                    </tr>
+                    <tr>
+                        <td>No aparece el panel del mapa</td>
+                        <td>Toque o haga clic directamente sobre una provincia o país destacado. En escritorio también puede pasar el cursor.</td>
+                    </tr>
+                    <tr>
+                        <td>El formulario no envía correo</td>
+                        <td>El formulario necesita conexión a un backend o servicio de correo. Por ahora muestra una confirmación local.</td>
+                    </tr>
+                    <tr>
+                        <td>El menú no se ve completo en celular</td>
+                        <td>Use el icono de tres líneas, desplácese por el menú y seleccione una opción. También puede girar el celular si necesita más espacio.</td>
+                    </tr>
+                    <tr>
+                        <td>Las imágenes tardan en cargar</td>
+                        <td>Espere unos segundos o actualice la página. Las imágenes del sitio son parte central del contenido visual.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <p class="footer-note">Manual elaborado para el sitio web local GPA ubicado en C:\xampp\htdocs\GPA. Las capturas incluidas corresponden a la interfaz visible del proyecto al momento de generar este documento.</p>
+    </main>
+</body>
+</html>

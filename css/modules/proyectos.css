@@ -103,6 +103,53 @@
     line-height: 1.4;
 }
 
+.tarjeta-verde .btn-enlace-tarjeta,
+.tarjeta-verde .btn-enlace-tarjeta:visited {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: auto;
+    padding: 0.55rem 0.65rem 0.55rem 1rem;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    border-radius: 999px;
+    color: var(--brand-green-dark);
+    background: linear-gradient(135deg, #ffffff 0%, #fff7df 100%);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(7, 40, 32, 0.18);
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta-verde .btn-enlace-tarjeta i {
+    display: inline-grid;
+    place-items: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 50%;
+    color: var(--brand-green-dark);
+    background: var(--brand-orange);
+    font-size: 0.72rem;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta-verde .btn-enlace-tarjeta:hover {
+    color: var(--brand-green-dark);
+    border-color: var(--brand-orange);
+    background: var(--brand-orange);
+    box-shadow: 0 14px 28px rgba(245, 158, 11, 0.28);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.tarjeta-verde .btn-enlace-tarjeta:hover i {
+    color: #ffffff;
+    background: var(--brand-green-dark);
+    transform: translateX(2px);
+}
+
 .icono-convenio {
     font-size: 2.5rem;
     margin-bottom: 1rem;

@@ -9,7 +9,7 @@
 
 /* --- 3. MÓDULOS --- */
 @import url('modules/nosotros.css');
-@import url('modules/gpaviajero.css');
+@import url('modules/gpaviajero.css?v=20260902-2');
 @import url('modules/proyectos.css');
 @import url('modules/incidencias.css');
 @import url('modules/noticias.css');
